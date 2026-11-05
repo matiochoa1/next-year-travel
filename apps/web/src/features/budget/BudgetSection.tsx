@@ -1,5 +1,6 @@
 import { Users } from 'lucide-react'
 import { useMemo, useRef } from 'react'
+import { NumberField } from '../../components/ui/NumberField'
 import { SectionHeading } from '../../components/ui/SectionHeading'
 import { BUDGET_CATEGORIES, CATEGORY_LABELS, COMFORT_LABELS, DEFAULT_ASSUMPTIONS, type ComfortLevel } from '../../data/budget'
 import { COUNTRIES, COUNTRY_NAMES, type Country } from '../../data/types'
@@ -68,9 +69,11 @@ export function BudgetSection() {
         <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           <label className="text-sm font-medium">
             Viajeros
-            <input
-              type="number" min={1} max={30} value={travelers}
-              onChange={(event) => setBudget({ travelers: Math.min(30, Math.max(1, Number(event.target.value) || 1)) })}
+            <NumberField
+              min={1}
+              max={30}
+              value={travelers}
+              onValueChange={(value) => setBudget({ travelers: value })}
               className="mt-1 min-h-11 w-full border border-sand-400 bg-ivory px-3"
             />
           </label>

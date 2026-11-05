@@ -108,11 +108,11 @@ export function BudgetItem({ client, country, category, base, total, maxHigh, it
           <div className="grid grid-cols-2 gap-2">
             <label className="text-sm font-medium">
               Mínimo
-              <input aria-label={`${name}, mínimo`} type="number" inputMode="numeric" min={0} value={low} onChange={(event) => setLow(event.target.value)} className={fieldClass} />
+              <input aria-label={`${name}, mínimo`} type="number" inputMode="numeric" min={0} value={low} onFocus={(event) => event.target.select()} onChange={(event) => setLow(event.target.value)} className={fieldClass} />
             </label>
             <label className="text-sm font-medium">
               Máximo
-              <input aria-label={`${name}, máximo`} type="number" inputMode="numeric" min={0} value={high} onChange={(event) => setHigh(event.target.value)} className={fieldClass} />
+              <input aria-label={`${name}, máximo`} type="number" inputMode="numeric" min={0} value={high} onFocus={(event) => event.target.select()} onChange={(event) => setHigh(event.target.value)} className={fieldClass} />
             </label>
           </div>
           <label className="block text-sm font-medium">

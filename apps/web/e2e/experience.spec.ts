@@ -109,6 +109,31 @@ test('updates the personal budget view', async ({ page }) => {
   await expect(section.getByTestId('group-thailand')).toContainText('3.040')
 })
 
+test('the travelers field can be cleared and retyped', async ({ page }) => {
+  const field = page.locator('#presupuesto').getByLabel('Viajeros')
+  await field.scrollIntoViewIfNeeded()
+
+  await field.click()
+  await page.keyboard.type('5')
+  await expect(field).toHaveValue('5')
+
+  await page.keyboard.press('Backspace')
+  await expect(field).toHaveValue('')
+  await page.keyboard.type('12')
+  await expect(field).toHaveValue('12')
+  await expect(page.getByTestId('group-thailand')).toContainText('18.240')
+
+  await page.keyboard.press('Control+a')
+  await page.keyboard.press('Backspace')
+  await field.blur()
+  await expect(field).toHaveValue('12')
+
+  await field.click()
+  await page.keyboard.type('99')
+  await field.blur()
+  await expect(field).toHaveValue('30')
+})
+
 test('edits a price after signing in, and undoes it', async ({ page }) => {
   const section = page.locator('#presupuesto')
   await section.scrollIntoViewIfNeeded()
