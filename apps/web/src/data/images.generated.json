@@ -1,0 +1,1202 @@
+{
+ "th-watarun": {
+  "id": "th-watarun",
+  "country": "thailand",
+  "place": "Wat Arun, Bangkok",
+  "alt": "Pabellón de tejados naranjas en el recinto de Wat Arun",
+  "file": "Templo Wat Arun, Bangkok, Tailandia, 2013-08-22, DD 30.jpg",
+  "width": 1920,
+  "height": 1283,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Diego Delso",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Templo_Wat_Arun,_Bangkok,_Tailandia,_2013-08-22,_DD_30.jpg"
+ },
+ "th-grandpalace": {
+  "id": "th-grandpalace",
+  "country": "thailand",
+  "place": "Wat Phra Kaew, Bangkok",
+  "alt": "Chedis y tejados del Gran Palacio reflejados en el agua",
+  "file": "Temple of the Emerald Buddha.jpg",
+  "width": 1920,
+  "height": 1282,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(184 200 216)",
+  "author": "Nawit science",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Temple_of_the_Emerald_Buddha.jpg"
+ },
+ "th-yaowarat": {
+  "id": "th-yaowarat",
+  "country": "thailand",
+  "place": "Yaowarat, Bangkok",
+  "alt": "Calle de Yaowarat de noche, con rótulos de neón del barrio chino",
+  "file": "Yaowarat at night (32455695783).jpg",
+  "width": 1920,
+  "height": 1274,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 8 8)",
+  "author": "Ninara from Helsinki, Finland",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yaowarat_at_night_(32455695783).jpg"
+ },
+ "th-bangkok-river": {
+  "id": "th-bangkok-river",
+  "country": "thailand",
+  "place": "Río Chao Phraya, Bangkok",
+  "alt": "Vista nocturna del río Chao Phraya a su paso por Bangkok",
+  "file": "Nightshot At The Chao Phraya River (221664677).jpeg",
+  "width": 1920,
+  "height": 1281,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Wolfgang Weber",
+  "license": "CC BY 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nightshot_At_The_Chao_Phraya_River_(221664677).jpeg"
+ },
+ "th-ayutthaya": {
+  "id": "th-ayutthaya",
+  "country": "thailand",
+  "place": "Wat Chaiwatthanaram, Ayutthaya",
+  "alt": "Vista aérea del conjunto de Wat Chaiwatthanaram junto al río",
+  "file": "Wat Chaiwatthanaram by drone.jpg",
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(200 216 232)",
+  "author": "Average trinmo",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Chaiwatthanaram_by_drone.jpg"
+ },
+ "th-ayutthaya2": {
+  "id": "th-ayutthaya2",
+  "country": "thailand",
+  "place": "Wat Chaiwatthanaram, Ayutthaya",
+  "alt": "Prangs de ladrillo de Wat Chaiwatthanaram al atardecer",
+  "file": "Sunset at Wat Chaiwatthanaram, Ayutthaya, Thailand.jpg",
+  "width": 1920,
+  "height": 1204,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(200 216 232)",
+  "author": "Justin Vidamo",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_at_Wat_Chaiwatthanaram,_Ayutthaya,_Thailand.jpg"
+ },
+ "th-ayutthaya3": {
+  "id": "th-ayutthaya3",
+  "country": "thailand",
+  "place": "Wat Mahathat, Ayutthaya",
+  "alt": "Ruinas de ladrillo de Wat Mahathat en Ayutthaya",
+  "file": "Templo Mahathat, Ayutthaya, Tailandia, 2013-08-23, DD 06.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 24 8)",
+  "author": "Diego Delso",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Templo_Mahathat,_Ayutthaya,_Tailandia,_2013-08-23,_DD_06.jpg"
+ },
+ "th-doisuthep": {
+  "id": "th-doisuthep",
+  "country": "thailand",
+  "place": "Doi Suthep, Chiang Mai",
+  "alt": "Budas dorados y ofrendas en Wat Phra That Doi Suthep",
+  "file": "Wat Phra That Doi Suthep, Doi Suthep, Thailand.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(216 232 248)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Phra_That_Doi_Suthep,_Doi_Suthep,_Thailand.jpg"
+ },
+ "th-chedi": {
+  "id": "th-chedi",
+  "country": "thailand",
+  "place": "Wat Chedi Luang, Chiang Mai",
+  "alt": "Gran chedi de piedra de Wat Chedi Luang en el casco antiguo",
+  "file": "Wat Chedi Luang, Stupa, Chiang Mai, Thailand.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wat_Chedi_Luang,_Stupa,_Chiang_Mai,_Thailand.jpg"
+ },
+ "th-elephant": {
+  "id": "th-elephant",
+  "country": "thailand",
+  "place": "Alrededores de Chiang Mai",
+  "alt": "Selva densa en las montañas del norte de Tailandia",
+  "file": "Elephant Nature Park - Chiang-Mai, Thailand (49419104227).jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Nina R from Africa",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Elephant_Nature_Park_-_Chiang-Mai,_Thailand_(49419104227).jpg"
+ },
+ "th-samui": {
+  "id": "th-samui",
+  "country": "thailand",
+  "place": "Koh Samui",
+  "alt": "Playa tropical con agua turquesa en Koh Samui",
+  "file": "Koh Samui, Island, Beach, Thailand.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(216 216 216)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Samui,_Island,_Beach,_Thailand.jpg"
+ },
+ "th-chaweng": {
+  "id": "th-chaweng",
+  "country": "thailand",
+  "place": "Chaweng, Koh Samui",
+  "alt": "Bahía de Chaweng Noi en Koh Samui",
+  "file": "Chaweng Noi Beach, Koh Samui (48107256306).jpg",
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Fabio Achilli from Milano, Italy",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chaweng_Noi_Beach,_Koh_Samui_(48107256306).jpg"
+ },
+ "th-angthong": {
+  "id": "th-angthong",
+  "country": "thailand",
+  "place": "Parque Marino de Ang Thong",
+  "alt": "Islas kársticas cubiertas de selva en Ang Thong",
+  "file": "Mu Ko Ang Thong National Park, Islands, Thailand.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(152 184 216)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mu_Ko_Ang_Thong_National_Park,_Islands,_Thailand.jpg"
+ },
+ "th-angthong2": {
+  "id": "th-angthong2",
+  "country": "thailand",
+  "place": "Parque Marino de Ang Thong",
+  "alt": "Laguna interior rodeada de acantilados en Ang Thong",
+  "file": "Mu Ko Ang Thong, Island lagoon, Thailand.jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(104 168 168)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mu_Ko_Ang_Thong,_Island_lagoon,_Thailand.jpg"
+ },
+ "th-angthong3": {
+  "id": "th-angthong3",
+  "country": "thailand",
+  "place": "Ko Wua Ta Lap, Ang Thong",
+  "alt": "Panorámica desde Ko Wua Ta Lap sobre el archipiélago",
+  "file": "Ko Wua Ta Lap.jpg",
+  "width": 1920,
+  "height": 828,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(216 232 248)",
+  "author": "ViseMoD",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ko_Wua_Ta_Lap.jpg"
+ },
+ "th-phangan": {
+  "id": "th-phangan",
+  "country": "thailand",
+  "place": "Bottle Beach, Koh Phangan",
+  "alt": "Bahía de Bottle Beach vista desde la selva",
+  "file": "Koh Phangan, Bottle Beach (6217794395).jpg",
+  "width": 1920,
+  "height": 1045,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(88 152 216)",
+  "author": "Fabio Achilli from Milano, Italy",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Phangan,_Bottle_Beach_(6217794395).jpg"
+ },
+ "th-phangan2": {
+  "id": "th-phangan2",
+  "country": "thailand",
+  "place": "Bottle Beach, Koh Phangan",
+  "alt": "Mirador hacia Bottle Beach en el norte de Koh Phangan",
+  "file": "View to Bottle Beach, Koh Phangan.jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(168 200 232)",
+  "author": "kaaist",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:View_to_Bottle_Beach,_Koh_Phangan.jpg"
+ },
+ "th-phangan3": {
+  "id": "th-phangan3",
+  "country": "thailand",
+  "place": "Haad Rin, Koh Phangan",
+  "alt": "Playa Sunrise de Haad Rin en Koh Phangan",
+  "file": "Koh Phangan, Haad Rin Sunrise Beach (6218403786).jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(232 232 232)",
+  "author": "Fabio Achilli from Milano, Italy",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Phangan,_Haad_Rin_Sunrise_Beach_(6218403786).jpg"
+ },
+ "th-tao": {
+  "id": "th-tao",
+  "country": "thailand",
+  "place": "Koh Tao",
+  "alt": "Costa rocosa y agua transparente en Koh Tao",
+  "file": "Koh tao 1.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(136 168 200)",
+  "author": "Jakub Michankow",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_tao_1.jpg"
+ },
+ "th-tao2": {
+  "id": "th-tao2",
+  "country": "thailand",
+  "place": "Sairee, Koh Tao",
+  "alt": "Playa de Sairee en Koh Tao",
+  "file": "Koh Tao Sairee Beach.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(184 200 216)",
+  "author": "User: (WT-shared) Whatsinaname at wts wikivoyage",
+  "license": "Public domain",
+  "licenseUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Tao_Sairee_Beach.jpg"
+ },
+ "th-nangyuan": {
+  "id": "th-nangyuan",
+  "country": "thailand",
+  "place": "Koh Nang Yuan",
+  "alt": "Lengua de arena que une los islotes de Koh Nang Yuan",
+  "file": "Koh Nang Yuan.jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(168 200 232)",
+  "author": "Justraveling.com",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Nang_Yuan.jpg"
+ },
+ "th-nangyuan2": {
+  "id": "th-nangyuan2",
+  "country": "thailand",
+  "place": "Koh Nang Yuan",
+  "alt": "Vista general de los tres islotes de Nang Yuan",
+  "file": "Nang Yuan Übersicht.JPG",
+  "width": 1920,
+  "height": 1285,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(200 200 216)",
+  "author": "Benedict Quirbach",
+  "license": "Public domain",
+  "licenseUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nang_Yuan_%C3%9Cbersicht.JPG"
+ },
+ "th-railay": {
+  "id": "th-railay",
+  "country": "thailand",
+  "place": "Railay, Krabi",
+  "alt": "Acantilados calizos y barcas en Railay",
+  "file": "Railay, Krabi, Thailand.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(152 184 216)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Railay,_Krabi,_Thailand.jpg"
+ },
+ "th-phiphi": {
+  "id": "th-phiphi",
+  "country": "thailand",
+  "place": "Maya Bay, Koh Phi Phi",
+  "alt": "Agua turquesa entre los acantilados de Maya Bay",
+  "file": "Maya Bay enclosed limestone cliffs and turquoise water Ko Phi Phi Le.jpg",
+  "width": 1920,
+  "height": 1439,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(216 232 248)",
+  "author": "Nnthurber",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Maya_Bay_enclosed_limestone_cliffs_and_turquoise_water_Ko_Phi_Phi_Le.jpg"
+ },
+ "th-lanta": {
+  "id": "th-lanta",
+  "country": "thailand",
+  "place": "Koh Lanta",
+  "alt": "Atardecer sobre el mar en Koh Lanta",
+  "file": "Koh Lanta sunset (32666575686).jpg",
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(72 88 88)",
+  "author": "Tom Ek",
+  "license": "CC BY-SA 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koh_Lanta_sunset_(32666575686).jpg"
+ },
+ "th-padthai": {
+  "id": "th-padthai",
+  "country": "thailand",
+  "place": "Bangkok",
+  "alt": "Plato de pad thai servido en Bangkok",
+  "file": "Pad Thai en Bangkok, Tailandia (23790424338).jpg",
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Edgardo W. Olivera from Montevideo, Uruguay",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pad_Thai_en_Bangkok,_Tailandia_(23790424338).jpg"
+ },
+ "th-longtail": {
+  "id": "th-longtail",
+  "country": "thailand",
+  "place": "Tailandia",
+  "alt": "Barca de cola larga navegando",
+  "file": "Longtail boat (8285781332).jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(184 184 200)",
+  "author": "Ian Gratton from Sutton-n-Craven, North Yorkshire, England",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Longtail_boat_(8285781332).jpg"
+ },
+ "th-khaosok": {
+  "id": "th-khaosok",
+  "country": "thailand",
+  "place": "Lago Cheow Lan, Khao Sok",
+  "alt": "Paisaje kárstico del lago Cheow Lan",
+  "file": "Karst landscape of Cheow Lan Lake, Thailand.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(216 232 248)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Karst_landscape_of_Cheow_Lan_Lake,_Thailand.jpg"
+ },
+ "my-petronas": {
+  "id": "my-petronas",
+  "country": "malaysia",
+  "place": "Torres Petronas, Kuala Lumpur",
+  "alt": "Torres Petronas iluminadas en Kuala Lumpur",
+  "file": "The Twins SE Asia 2019 (49171985716).jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 24 24)",
+  "author": "James Kerwin from Tbilisi",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Twins_SE_Asia_2019_(49171985716).jpg"
+ },
+ "my-klskyline": {
+  "id": "my-klskyline",
+  "country": "malaysia",
+  "place": "Kuala Lumpur",
+  "alt": "Horizonte de rascacielos de Kuala Lumpur",
+  "file": "Kuala Lumpur Malaysia Skyline-03.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(136 168 200)",
+  "author": "CEphoto, Uwe Aranas",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuala_Lumpur_Malaysia_Skyline-03.jpg"
+ },
+ "my-batu": {
+  "id": "my-batu",
+  "country": "malaysia",
+  "place": "Batu Caves",
+  "alt": "Escalinata de colores que sube a las cuevas de Batu",
+  "file": "Batu Caves stairs 2022-05.jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Chainwit.",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Batu_Caves_stairs_2022-05.jpg"
+ },
+ "my-merdeka": {
+  "id": "my-merdeka",
+  "country": "malaysia",
+  "place": "Edificio Sultan Abdul Samad, Kuala Lumpur",
+  "alt": "Edificio Sultan Abdul Samad junto a la plaza Merdeka",
+  "file": "Kuala Lumpur Malaysia Sultan-Abdul-Samad-Building-05.jpg",
+  "width": 1920,
+  "height": 1269,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "CEphoto, Uwe Aranas",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kuala_Lumpur_Malaysia_Sultan-Abdul-Samad-Building-05.jpg"
+ },
+ "my-jalanalor": {
+  "id": "my-jalanalor",
+  "country": "malaysia",
+  "place": "Jalan Alor, Kuala Lumpur",
+  "alt": "Puestos de comida callejera en Jalan Alor",
+  "file": "Street food at Jalan Alor, Kuala Lumpur, Malaysia.jpg",
+  "width": 1920,
+  "height": 1281,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "John Walker from Chicago, IL, USA",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Street_food_at_Jalan_Alor,_Kuala_Lumpur,_Malaysia.jpg"
+ },
+ "my-cameron": {
+  "id": "my-cameron",
+  "country": "malaysia",
+  "place": "Cameron Highlands",
+  "alt": "Helechos arbóreos y selva de montaña en Cameron Highlands",
+  "file": "BOH tea plantations, Cameron Highlands, Pahang, Malaysia.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 24 24)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:BOH_tea_plantations,_Cameron_Highlands,_Pahang,_Malaysia.jpg"
+ },
+ "my-cameron2": {
+  "id": "my-cameron2",
+  "country": "malaysia",
+  "place": "Cameron Highlands",
+  "alt": "Hileras de té en las laderas de Cameron Highlands",
+  "file": "Cameron Highlands Tea Plantation 2012.JPG",
+  "width": 1920,
+  "height": 1073,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Bjørn Christian Tørrissen",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cameron_Highlands_Tea_Plantation_2012.JPG"
+ },
+ "my-mossy": {
+  "id": "my-mossy",
+  "country": "malaysia",
+  "place": "Bosque musgoso, Cameron Highlands",
+  "alt": "Árboles cubiertos de musgo en la niebla de Cameron Highlands",
+  "file": "Mossy Forest in Cameron Highland.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Nazri Sulaiman",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mossy_Forest_in_Cameron_Highland.jpg"
+ },
+ "my-georgetown": {
+  "id": "my-georgetown",
+  "country": "malaysia",
+  "place": "George Town, Penang",
+  "alt": "Muelles de clanes de George Town, sobre el agua",
+  "file": "Clan Jetties of Penang.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Lxphotography",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Clan_Jetties_of_Penang.jpg"
+ },
+ "my-keklok": {
+  "id": "my-keklok",
+  "country": "malaysia",
+  "place": "Kek Lok Si, Penang",
+  "alt": "Farolillos rojos en el templo Kek Lok Si",
+  "file": "Penang Malaysia Kek-Lok-Si-Temple-02.jpg",
+  "width": 1920,
+  "height": 1129,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "CEphoto, Uwe Aranas",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Penang_Malaysia_Kek-Lok-Si-Temple-02.jpg"
+ },
+ "my-streetart": {
+  "id": "my-streetart",
+  "country": "malaysia",
+  "place": "George Town, Penang",
+  "alt": "Mural con un gato sobre círculos de colores en George Town",
+  "file": "Penang Malaysia Street-art-06.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(216 216 216)",
+  "author": "CEphoto, Uwe Aranas",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Penang_Malaysia_Street-art-06.jpg"
+ },
+ "my-jetty": {
+  "id": "my-jetty",
+  "country": "malaysia",
+  "place": "Chew Jetty, Penang",
+  "alt": "Casas sobre pilotes de Chew Jetty en George Town",
+  "file": "Cmglee Penang Chew Jetty view.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(200 216 232)",
+  "author": "Cmglee",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cmglee_Penang_Chew_Jetty_view.jpg"
+ },
+ "my-perhentian": {
+  "id": "my-perhentian",
+  "country": "malaysia",
+  "place": "Islas Perhentian",
+  "alt": "Palmeras sobre una playa de las Perhentian",
+  "file": "Perhentian Islands, Malaysia, Palms on the beach.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Malaysia,_Palms_on_the_beach.jpg"
+ },
+ "my-kecil": {
+  "id": "my-kecil",
+  "country": "malaysia",
+  "place": "Perhentian Kecil",
+  "alt": "Playa de Perhentian Kecil",
+  "file": "Perhentian Kecil Island, Malaysia, Beach.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 24 24)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perhentian_Kecil_Island,_Malaysia,_Beach.jpg"
+ },
+ "my-perhentian3": {
+  "id": "my-perhentian3",
+  "country": "malaysia",
+  "place": "Islas Perhentian",
+  "alt": "Playa de arena clara en las Perhentian",
+  "file": "Perhentian Islands, Malaysia, Beach.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(232 232 216)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Malaysia,_Beach.jpg"
+ },
+ "my-besar": {
+  "id": "my-besar",
+  "country": "malaysia",
+  "place": "Perhentian Besar",
+  "alt": "Costa oeste de Perhentian Besar",
+  "file": "Perhentian Besar, Malaysia, West beach 2.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perhentian_Besar,_Malaysia,_West_beach_2.jpg"
+ },
+ "my-besar2": {
+  "id": "my-besar2",
+  "country": "malaysia",
+  "place": "Perhentian Besar",
+  "alt": "Agua transparente vista entre la selva en Perhentian Besar",
+  "file": "Perhentian Besar, Malaysia, Beach.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perhentian_Besar,_Malaysia,_Beach.jpg"
+ },
+ "my-afterglow": {
+  "id": "my-afterglow",
+  "country": "malaysia",
+  "place": "Islas Perhentian",
+  "alt": "Últimas luces del día en las Perhentian",
+  "file": "Perhentian Islands, Malaysia, Afterglow.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Perhentian_Islands,_Malaysia,_Afterglow.jpg"
+ },
+ "my-redang": {
+  "id": "my-redang",
+  "country": "malaysia",
+  "place": "Pulau Redang",
+  "alt": "Playa de arena blanca en Pulau Redang",
+  "file": "Pulau Redang - White sandy beach.jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(136 168 200)",
+  "author": "Azreey",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pulau_Redang_-_White_sandy_beach.jpg"
+ },
+ "my-redang2": {
+  "id": "my-redang2",
+  "country": "malaysia",
+  "place": "Pulau Redang",
+  "alt": "Mar y playa en Redang",
+  "file": "Redang Sea Beach.jpg",
+  "width": 1920,
+  "height": 1285,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(120 168 216)",
+  "author": "Mukherjeesaikat",
+  "license": "CC BY-SA 3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Redang_Sea_Beach.jpg"
+ },
+ "my-langtengah": {
+  "id": "my-langtengah",
+  "country": "malaysia",
+  "place": "Lang Tengah",
+  "alt": "Playa de Lang Tengah",
+  "file": "Lang Tengah Island - Beach.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Phalinn Ooi",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lang_Tengah_Island_-_Beach.jpg"
+ },
+ "my-langtengah2": {
+  "id": "my-langtengah2",
+  "country": "malaysia",
+  "place": "Lang Tengah",
+  "alt": "Palmera inclinada sobre la playa en Lang Tengah",
+  "file": "Lang Tengah Island - Beach with palm.jpg",
+  "width": 1920,
+  "height": 1275,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(136 152 184)",
+  "author": "chee.hong",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lang_Tengah_Island_-_Beach_with_palm.jpg"
+ },
+ "my-langkawi": {
+  "id": "my-langkawi",
+  "country": "malaysia",
+  "place": "Pantai Cenang, Langkawi",
+  "alt": "Playa de Pantai Cenang en Langkawi",
+  "file": "Cenang Beach view, Langkawi.jpg",
+  "width": 1920,
+  "height": 1080,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(104 136 168)",
+  "author": "NickLubushko",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cenang_Beach_view,_Langkawi.jpg"
+ },
+ "my-skybridge": {
+  "id": "my-skybridge",
+  "country": "malaysia",
+  "place": "Sky Bridge, Langkawi",
+  "alt": "Puente colgante Sky Bridge en Langkawi",
+  "file": "Langkawi Sky Bridge (November 2016).jpg",
+  "width": 1920,
+  "height": 1281,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(152 184 216)",
+  "author": "Engin Akyurt",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Langkawi_Sky_Bridge_(November_2016).jpg"
+ },
+ "my-nasilemak": {
+  "id": "my-nasilemak",
+  "country": "malaysia",
+  "place": "Malasia",
+  "alt": "Plato de nasi lemak",
+  "file": "Nasi lemak joh.jpg",
+  "width": 1920,
+  "height": 1289,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 24 24)",
+  "author": "مانفی",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nasi_lemak_joh.jpg"
+ },
+ "my-tamannegara": {
+  "id": "my-tamannegara",
+  "country": "malaysia",
+  "place": "Taman Negara",
+  "alt": "Selva primaria de Taman Negara vista desde lo alto",
+  "file": "Taman Negara, Malaysia, Panoramic view.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taman_Negara,_Malaysia,_Panoramic_view.jpg"
+ },
+ "my-hornbill": {
+  "id": "my-hornbill",
+  "country": "malaysia",
+  "place": "Pangkor, Malasia",
+  "alt": "Cálao oriental, una de las aves de la selva malasia",
+  "file": "Oriental Pied Hornbill - Pangkor.jpg",
+  "width": 1920,
+  "height": 1281,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(72 104 56)",
+  "author": "Ronykr",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oriental_Pied_Hornbill_-_Pangkor.jpg"
+ },
+ "my-kotabharu": {
+  "id": "my-kotabharu",
+  "country": "malaysia",
+  "place": "Kota Bharu",
+  "alt": "Mercado central Siti Khadijah en Kota Bharu",
+  "file": "Pasar Besar Siti Khadijah, Kota Bharu, Malaysia (4014429550).jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "yeowatzup",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pasar_Besar_Siti_Khadijah,_Kota_Bharu,_Malaysia_(4014429550).jpg"
+ },
+ "ph-elnido": {
+  "id": "ph-elnido",
+  "country": "philippines",
+  "place": "El Nido, Palawan",
+  "alt": "Laguna entre islotes calizos en la bahía de Bacuit",
+  "file": "Lagoon in Bacuit Bay, El Nido, Palawan, Philippines.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(24 40 24)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lagoon_in_Bacuit_Bay,_El_Nido,_Palawan,_Philippines.jpg"
+ },
+ "ph-boat": {
+  "id": "ph-boat",
+  "country": "philippines",
+  "place": "Bahía de Bacuit, Palawan",
+  "alt": "Barca en la bahía de Bacuit, en Palawan",
+  "file": "Boat in Bacuit Bay, Palawan, Philippines.jpg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boat_in_Bacuit_Bay,_Palawan,_Philippines.jpg"
+ },
+ "my-sipadan": {
+  "id": "my-sipadan",
+  "country": "malaysia",
+  "place": "Sipadan, Sabah",
+  "alt": "Isla de Sipadan rodeada de arrecife",
+  "file": "Sipadan Island, Sabah, Malaysia.jpg",
+  "width": 1920,
+  "height": 1440,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(184 216 248)",
+  "author": "William Warby from London, England",
+  "license": "CC BY 2.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sipadan_Island,_Sabah,_Malaysia.jpg"
+ },
+ "my-sipadan2": {
+  "id": "my-sipadan2",
+  "country": "malaysia",
+  "place": "Sipadan, Sabah",
+  "alt": "Banco de peces sobre el arrecife de Sipadan",
+  "file": "Beneath Sipadan Island.jpeg",
+  "width": 1920,
+  "height": 1280,
+  "widths": [
+   640,
+   960,
+   1440,
+   1920
+  ],
+  "color": "rgb(8 8 8)",
+  "author": "Johnny Chen",
+  "license": "CC0",
+  "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beneath_Sipadan_Island.jpeg"
+ }
+}

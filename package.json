@@ -1,0 +1,30 @@
+{
+  "name": "next-stop-asia",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.6.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @nsa/web dev",
+    "dev:api": "pnpm --filter @nsa/api dev",
+    "dev:full": "concurrently -n api,web -c cyan,green \"pnpm dev:api\" \"pnpm --filter @nsa/web dev --mode fullstack\"",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "eslint .",
+    "test": "pnpm -r test",
+    "test:e2e": "pnpm --filter @nsa/web test:e2e"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^10.0.6",
+    "eslint": "^10.14.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.14.0",
+    "sharp": "^0.35.5",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
+  }
+}

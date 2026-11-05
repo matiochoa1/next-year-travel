@@ -1,0 +1,17 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "STORAGE_CONNECTION_STRING": "UseDevelopmentStorage=true",
+    "TABLE_NAME": "nextstopasia",
+    "ALLOWED_ORIGINS": "http://localhost:5173",
+    "COOKIE_SECURE": "false",
+    "COOKIE_SAMESITE": "Lax",
+    "RATE_LIMIT_SALT": "local-only-change-me",
+    "GROUP_CREATION_SECRET": "local-only-change-me",
+    "SESSION_SECRET": "local-only-change-me",
+    "GOOGLE_CLIENT_ID": "",
+    "ADMIN_EMAILS": ""
+  }
+}

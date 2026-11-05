@@ -1,0 +1,7 @@
+src
+scripts
+*.ts
+node_modules
+tsconfig.json
+esbuild.config.mjs
+local.settings.json*
