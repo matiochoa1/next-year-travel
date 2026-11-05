@@ -36,7 +36,7 @@ Copy the **Client ID**. It isn't secret, and no client secret is used.
 ## 4. Provision the backend
 
 ```bash
-./infra/deploy.sh rg-next-stop-asia westeurope https://your-project.vercel.app \
+./infra/deploy.sh rg-next-stop-asia spaincentral https://your-project.vercel.app \
   <google-client-id> <your-google-email>
 ```
 
@@ -125,6 +125,8 @@ az group delete --name rg-next-stop-asia
 | Sign-in works but the vote says the session expired | Cookie not stored: check that `/api` goes through the Vercel rewrite and `VITE_API_BASE_URL` is empty |
 | API returns 500 with `internal` | Enable monitoring or read the log stream; check `STORAGE_TABLE_ENDPOINT` and the role assignments, which can take minutes to apply |
 | API returns 404 on a group | `VITE_GROUP_ID` does not match the group that was created |
+| Provisioning fails with `RequestDisallowedByAzure` | That region isn't accepting new customers on your subscription. Try another, such as `spaincentral`, after deleting the empty resource group |
+| Publishing fails with `BlobUploadFailedException` right after provisioning | Role assignments haven't applied yet. Wait a couple of minutes and retry |
 | The first request is slow | Cold start from zero instances, expected on this plan |
 | Map stays blank | Check the CSP in `vercel.json` if you changed tile providers |
 | Google button missing or `origin_mismatch` | The site's exact URL is missing from **Authorized JavaScript origins**; changes can take a few minutes |

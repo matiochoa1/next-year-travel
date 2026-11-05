@@ -4,7 +4,7 @@
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://REPLACE-WITH-FUNCTION-APP.azurewebsites.net/api/:path*" },
+    { "source": "/api/:path*", "destination": "https://nsa-api-vxb6ifeyswse4.azurewebsites.net/api/:path*" },
     { "source": "/((?!api/|images/|assets/).*)", "destination": "/index.html" }
   ],
   "headers": [

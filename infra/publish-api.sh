@@ -14,4 +14,4 @@ pnpm --dir "$root" --filter @nsa/api build
 archive=$(mktemp -d)/api.zip
 (cd "$root/apps/api/deploy" && zip -qr "$archive" .)
 az functionapp deployment source config-zip --resource-group "$1" --name "$2" --src "$archive"
-echo "Published. Verify with: curl https://$2.azurewebsites.net/api/groups/<group-id>"
+echo "Published. Verify with: curl https://$2.azurewebsites.net/api/groups/<group-id>/me"
