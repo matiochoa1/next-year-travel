@@ -106,7 +106,7 @@ export const ITINERARY_PLANS: Record<Country, DayPlan[]> = {
     {
       id: 'th-angthong', place: 'angthong', destination: 'Parque Marino de Ang Thong', title: 'Excursión a Ang Thong',
       activities: ['Barco temprano hacia el archipiélago.', 'Subida al mirador de Ko Wua Ta Lap.', 'Laguna esmeralda de Ko Mae Ko.', 'Kayak y snórkel.'],
-      experiences: ['El paisaje más “Filipinas” de la ruta', 'Kayak entre islas calizas'],
+      experiences: ['El paisaje más espectacular de la ruta', 'Kayak entre islas calizas'],
       base: 'Koh Samui', transport: { mode: 'boat', text: 'Excursión organizada, sujeta al estado del mar.' },
       alternatives: ['Si el mar está mal, cambiarla de día o sustituirla por el interior de Samui.'],
       intensity: 4, image: 'th-angthong',

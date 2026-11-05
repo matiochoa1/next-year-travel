@@ -121,6 +121,44 @@ export interface AdminGroupView {
   totalVotes: number
 }
 
+export const BUDGET_CATEGORIES = [
+  'flights', 'domestic', 'ferries', 'lodging', 'food', 'tours', 'insurance', 'contingency',
+] as const
+export const budgetCategorySchema = z.enum(BUDGET_CATEGORIES)
+export type BudgetCategory = z.infer<typeof budgetCategorySchema>
+
+export const BUDGET_NOTE_MAX = 140
+export const BUDGET_AMOUNT_MAX = 20000
+
+const budgetAmountSchema = z.number().int().min(0).max(BUDGET_AMOUNT_MAX)
+
+const budgetItemKey = { country: destinationSchema, category: budgetCategorySchema }
+
+export const budgetItemRequestSchema = z
+  .strictObject({
+    ...budgetItemKey,
+    low: budgetAmountSchema,
+    high: budgetAmountSchema,
+    note: commentSchema.pipe(z.string().max(BUDGET_NOTE_MAX)).optional().default(''),
+    /** Version this edit started from; null when the item still has its initial value. */
+    expectedVersion: z.string().max(256).nullable(),
+  })
+  .refine(({ low, high }) => low <= high)
+
+export const budgetResetRequestSchema = z.strictObject(budgetItemKey)
+
+/** A price the group has replaced with real data. Untouched items keep the editorial default. */
+export interface BudgetItemView {
+  country: Destination
+  category: BudgetCategory
+  low: number
+  high: number
+  note: string
+  updatedBy: string
+  updatedAt: string
+  version: string
+}
+
 export type ApiErrorCode =
   | 'bad_request'
   | 'unauthorized'

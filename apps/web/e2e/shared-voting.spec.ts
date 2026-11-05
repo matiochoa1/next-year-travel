@@ -92,6 +92,25 @@ test('removing a friend revokes their access immediately', async ({ browser }) =
   await expect(friend.getByTestId('sign-in')).toBeVisible()
 })
 
+test('a price edited by one friend reaches the other, and stale edits are refused', async ({ browser }) => {
+  const admin = await adminPage(browser)
+  await invite(admin, email('fede'), email('gema'))
+  const [fede, gema] = [await voter(browser, email('fede'), 'Malasia'), await voter(browser, email('gema'), 'Tailandia')]
+  const editor = (page: Page) => page.locator('#presupuesto')
+
+  // Both open the same item before either saves.
+  await editor(gema).getByRole('button', { name: 'Editar Comida (por día), Malasia' }).click()
+  await editor(fede).getByRole('button', { name: 'Editar Comida (por día), Malasia' }).click()
+  await editor(fede).getByLabel('Comida (por día), Malasia, mínimo').fill('18')
+  await editor(fede).getByRole('button', { name: 'Guardar para todos' }).click()
+  await expect(editor(fede).getByTestId('item-malaysia-food')).toContainText(`fede.${suffix}`)
+
+  await editor(gema).getByLabel('Comida (por día), Malasia, mínimo').fill('5')
+  await editor(gema).getByRole('button', { name: 'Guardar para todos' }).click()
+  await expect(editor(gema).getByRole('alert')).toContainText('Alguien acaba de cambiar')
+  await expect(editor(gema).getByTestId('item-malaysia-food')).toContainText(`fede.${suffix}`)
+})
+
 test('admin area refuses ordinary participants', async ({ browser }) => {
   const admin = await adminPage(browser)
   await invite(admin, email('dani'))

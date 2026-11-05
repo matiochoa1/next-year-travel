@@ -65,11 +65,6 @@ export const COMPARISON: ComparisonCategory[] = [
     winnerNote: 'Calculado a partir del mes seleccionado en la sección de clima.',
     detail: { thailand: 'En mayo, el Golfo suele ser la opción más sensata; el Andamán empeora.', malaysia: 'En mayo, las islas de la costa este están en plena temporada.' },
   },
-  {
-    id: 'philippines', label: 'Parecido con Filipinas', scores: { thailand: 8.5, malaysia: 7.5 },
-    winnerNote: 'Ang Thong es lo que más recuerda a Palawan.',
-    detail: { thailand: 'Islas calizas, excursiones en barco y sensación de ruta entre islas.', malaysia: 'Muy parecido en playa y snórkel, menos en paisaje kárstico y en saltar entre islas.' },
-  },
 ]
 
 export type Criterion =

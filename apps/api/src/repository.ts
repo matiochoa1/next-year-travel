@@ -1,4 +1,4 @@
-import type { Destination, GroupStatus } from '@nsa/shared'
+import type { BudgetCategory, BudgetItemView, Destination, GroupStatus } from '@nsa/shared'
 
 export class ConcurrencyError extends Error {}
 export class AlreadyExistsError extends Error {}
@@ -35,6 +35,7 @@ export interface StoredVote {
 }
 
 export type NewVote = Omit<StoredVote, 'version'>
+export type NewBudgetItem = Omit<BudgetItemView, 'version'>
 
 export interface GroupSnapshot {
   participants: Array<Pick<ParticipantRecord, 'participantId' | 'displayName' | 'email'>>
@@ -67,6 +68,10 @@ export interface VotingRepository {
    */
   putVote(groupId: string, vote: NewVote, expectedVersion: string | null): Promise<StoredVote>
   deleteVotes(groupId: string): Promise<number>
+  listBudgetItems(groupId: string): Promise<BudgetItemView[]>
+  /** Same conditional semantics as putVote, so two friends cannot silently overwrite each other. */
+  putBudgetItem(groupId: string, item: NewBudgetItem, expectedVersion: string | null): Promise<BudgetItemView>
+  deleteBudgetItem(groupId: string, country: Destination, category: BudgetCategory): Promise<void>
   /** Increments a counter for the window and returns the new count. Best-effort by design. */
   incrementRateCounter(key: string, windowStart: string): Promise<number>
 }

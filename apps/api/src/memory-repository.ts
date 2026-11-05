@@ -1,7 +1,9 @@
+import type { BudgetCategory, BudgetItemView, Destination } from '@nsa/shared'
 import type {
   GroupRecord,
   GroupSnapshot,
   InvitationRecord,
+  NewBudgetItem,
   NewVote,
   ParticipantRecord,
   StoredVote,
@@ -16,6 +18,7 @@ export class MemoryRepository implements VotingRepository {
   private invitations = new Map<string, InvitationRecord>()
   private votes = new Map<string, StoredVote>()
   private counters = new Map<string, number>()
+  private budget = new Map<string, BudgetItemView>()
   private sequence = 0
 
   private nextVersion = () => `v${(this.sequence += 1)}`
@@ -102,6 +105,22 @@ export class MemoryRepository implements VotingRepository {
       }
     }
     return deleted
+  }
+
+  async listBudgetItems(groupId: string) {
+    return [...this.budget.entries()].filter(([key]) => key.startsWith(`${groupId}|`)).map(([, item]) => item)
+  }
+
+  async putBudgetItem(groupId: string, item: NewBudgetItem, expectedVersion: string | null) {
+    const key = `${groupId}|${item.country}|${item.category}`
+    if ((this.budget.get(key)?.version ?? null) !== expectedVersion) throw new ConcurrencyError()
+    const stored = { ...item, version: this.nextVersion() }
+    this.budget.set(key, stored)
+    return stored
+  }
+
+  async deleteBudgetItem(groupId: string, country: Destination, category: BudgetCategory) {
+    this.budget.delete(`${groupId}|${country}|${category}`)
   }
 
   async incrementRateCounter(key: string, windowStart: string) {

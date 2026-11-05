@@ -1119,46 +1119,6 @@
   "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pasar_Besar_Siti_Khadijah,_Kota_Bharu,_Malaysia_(4014429550).jpg"
  },
- "ph-elnido": {
-  "id": "ph-elnido",
-  "country": "philippines",
-  "place": "El Nido, Palawan",
-  "alt": "Laguna entre islotes calizos en la bahía de Bacuit",
-  "file": "Lagoon in Bacuit Bay, El Nido, Palawan, Philippines.jpg",
-  "width": 1920,
-  "height": 1280,
-  "widths": [
-   640,
-   960,
-   1440,
-   1920
-  ],
-  "color": "rgb(24 40 24)",
-  "author": "Vyacheslav Argenberg",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lagoon_in_Bacuit_Bay,_El_Nido,_Palawan,_Philippines.jpg"
- },
- "ph-boat": {
-  "id": "ph-boat",
-  "country": "philippines",
-  "place": "Bahía de Bacuit, Palawan",
-  "alt": "Barca en la bahía de Bacuit, en Palawan",
-  "file": "Boat in Bacuit Bay, Palawan, Philippines.jpg",
-  "width": 1920,
-  "height": 1280,
-  "widths": [
-   640,
-   960,
-   1440,
-   1920
-  ],
-  "color": "rgb(8 8 8)",
-  "author": "Vyacheslav Argenberg",
-  "license": "CC BY 4.0",
-  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Boat_in_Bacuit_Bay,_Palawan,_Philippines.jpg"
- },
  "my-sipadan": {
   "id": "my-sipadan",
   "country": "malaysia",

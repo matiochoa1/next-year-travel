@@ -1,14 +1,13 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { COMMENT_MAX, commentSchema, destinationSchema } from '@nsa/shared'
 import { Check, FlaskConical, Loader2, WifiOff } from 'lucide-react'
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
-import { useParams } from 'react-router'
 import { z } from 'zod'
 import { Photo } from '../../components/ui/Photo'
 import { Reveal } from '../../components/ui/Reveal'
 import { COUNTRIES, COUNTRY_NAMES } from '../../data/types'
-import { resolveClient, VotingError, type createDemoClient } from './client'
+import { VotingError, type createDemoClient } from './client'
 import { FinalReveal } from './FinalReveal'
 import { SignIn } from './SignIn'
 import { Comments, ResultBars } from './ResultBars'
@@ -31,10 +30,8 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>
 
 export function VotingSection() {
-  const { groupId } = useParams()
-  const client = useMemo(() => resolveClient(groupId), [groupId])
   const sectionRef = useRef<HTMLElement>(null)
-  const { results, me, loading, offline, signIn, signOut, submit, refresh } = useVoting(client, sectionRef)
+  const { client, results, me, loading, offline, signIn, signOut, submit, refresh } = useVoting(sectionRef)
   const [editing, setEditing] = useState(false)
   const closed = results?.group.closed ?? false
   const signedIn = !loading && me !== null

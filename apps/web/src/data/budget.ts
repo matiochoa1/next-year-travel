@@ -1,7 +1,8 @@
+import type { BudgetCategory } from '@nsa/shared'
 import type { Country } from './types'
 
-export type BudgetCategory =
-  | 'flights' | 'domestic' | 'ferries' | 'lodging' | 'food' | 'tours' | 'insurance' | 'contingency'
+export { BUDGET_CATEGORIES } from '@nsa/shared'
+export type { BudgetCategory }
 
 export type ComfortLevel = 'saver' | 'mid' | 'comfort'
 
@@ -24,7 +25,16 @@ export const CATEGORY_LABELS: Record<BudgetCategory, string> = {
   contingency: 'Imprevistos',
 }
 
-export const BUDGET_CATEGORIES = Object.keys(CATEGORY_LABELS) as BudgetCategory[]
+export const CATEGORY_UNITS: Record<BudgetCategory, string> = {
+  flights: '€ por persona, ida y vuelta',
+  domestic: '€ por persona, todo el viaje',
+  ferries: '€ por persona, todo el viaje',
+  lodging: '€ por persona y noche',
+  food: '€ por persona y día',
+  tours: '€ por persona, todo el viaje',
+  insurance: '€ por persona',
+  contingency: '€ por persona',
+}
 
 export const COMFORT_LABELS: Record<ComfortLevel, string> = {
   saver: 'Ahorro',

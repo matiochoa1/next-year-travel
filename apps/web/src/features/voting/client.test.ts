@@ -49,6 +49,21 @@ describe('demo client', () => {
   })
 })
 
+describe('demo budget', () => {
+  beforeEach(() => localStorage.clear())
+  const edit = { country: 'malaysia', category: 'food', low: 15, high: 20, note: 'Real', expectedVersion: null } as const
+
+  it('keeps one edit per item and can undo it', async () => {
+    const client = createDemoClient()
+    await client.signIn('Ana')
+    await client.saveBudgetItem(edit)
+    await client.saveBudgetItem({ ...edit, low: 16 })
+    expect(await client.getBudget()).toMatchObject([{ low: 16, updatedBy: 'Ana' }])
+    await client.resetBudgetItem('malaysia', 'food')
+    expect(await client.getBudget()).toEqual([])
+  })
+})
+
 describe('shareText', () => {
   const base = { group: { groupId: 'x', title: '', status: 'locked', votingClosesAt: null, closed: true }, comments: [] } as const
 

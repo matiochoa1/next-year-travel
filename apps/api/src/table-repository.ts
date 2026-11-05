@@ -1,5 +1,12 @@
 import { odata, RestError, TableClient } from '@azure/data-tables'
-import { destinationSchema, type GroupStatus } from '@nsa/shared'
+import {
+  budgetCategorySchema,
+  destinationSchema,
+  type BudgetCategory,
+  type BudgetItemView,
+  type Destination,
+  type GroupStatus,
+} from '@nsa/shared'
 import { hashToken } from './crypto'
 import {
   AlreadyExistsError,
@@ -7,6 +14,7 @@ import {
   type GroupRecord,
   type GroupSnapshot,
   type InvitationRecord,
+  type NewBudgetItem,
   type NewVote,
   type ParticipantRecord,
   type StoredVote,
@@ -21,12 +29,14 @@ import {
  *   <groupId>      p_<participantId>   Participant
  *   <groupId>      i_<sha256(email)>   Invitation
  *   <groupId>      v_<participantId>   Vote (one row per participant = one active vote)
+ *   <groupId>      b_<country>_<cat>   Budget item edited by the group
  *   rl_<window>    <key>               Rate-limit counter
  */
 const GROUP_ROW = 'group'
 const participantRow = (id: string) => `p_${id}`
 const invitationRow = (email: string) => `i_${hashToken(email)}`
 const voteRow = (id: string) => `v_${id}`
+const budgetRow = (country: string, category: string) => `b_${country}_${category}`
 
 interface GroupEntity {
   title: string
@@ -49,6 +59,16 @@ interface InvitationEntity {
 interface VoteEntity {
   destination: string
   comment?: string
+  updatedAt: string
+}
+
+interface BudgetEntity {
+  country: string
+  category: string
+  low: number
+  high: number
+  note?: string
+  updatedBy: string
   updatedAt: string
 }
 
@@ -251,6 +271,47 @@ export class TableRepository implements VotingRepository {
       )
     }
     return rowKeys.length
+  }
+
+  async listBudgetItems(groupId: string) {
+    const items: BudgetItemView[] = []
+    const entities = this.client.listEntities<BudgetEntity>({
+      queryOptions: { filter: odata`PartitionKey eq ${groupId} and RowKey ge 'b_' and RowKey lt 'b~'` },
+    })
+    for await (const entity of entities) {
+      items.push({
+        country: destinationSchema.parse(entity.country),
+        category: budgetCategorySchema.parse(entity.category),
+        low: entity.low,
+        high: entity.high,
+        note: entity.note ?? '',
+        updatedBy: entity.updatedBy,
+        updatedAt: entity.updatedAt,
+        version: requireEtag(entity.etag),
+      })
+    }
+    return items
+  }
+
+  async putBudgetItem(groupId: string, item: NewBudgetItem, expectedVersion: string | null) {
+    const entity = { partitionKey: groupId, rowKey: budgetRow(item.country, item.category), ...item }
+    try {
+      const response =
+        expectedVersion === null
+          ? await this.client.createEntity(entity)
+          : await this.client.updateEntity(entity, 'Replace', { etag: expectedVersion })
+      return { ...item, version: requireEtag(response.etag) }
+    } catch (error) {
+      const status = statusOf(error)
+      if (status === 409 || status === 412 || (status === 404 && expectedVersion !== null)) {
+        throw new ConcurrencyError()
+      }
+      throw error
+    }
+  }
+
+  async deleteBudgetItem(groupId: string, country: Destination, category: BudgetCategory) {
+    await this.deleteIfPresent(groupId, budgetRow(country, category))
   }
 
   async incrementRateCounter(key: string, windowStart: string) {

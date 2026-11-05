@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { DEFAULT_ASSUMPTIONS } from '../../data/budget'
-import { calculateBudget, formatEuros, formatRange, mealDaysFor, nightsFor, roundToTen } from './calculateBudget'
+import { calculateBudget, formatEuros, formatRange, mealDaysFor, mergeAssumptions, nightsFor, roundToTen } from './calculateBudget'
 
 const defaults = { travelers: 1, days: 15, comfort: 'mid', sharedRoom: true } as const
 
@@ -47,6 +47,27 @@ describe('calculateBudget', () => {
       flights: { low: 800, high: 800 },
     }
     expect(calculateBudget(edited, defaults).perPerson.low).toBe(1700)
+  })
+})
+
+describe('mergeAssumptions', () => {
+  const item = {
+    country: 'thailand', category: 'flights', low: 700, high: 720, note: '', updatedBy: 'Ana', updatedAt: '', version: '1',
+  } as const
+
+  it('replaces only the edited item of that country', () => {
+    const merged = mergeAssumptions(DEFAULT_ASSUMPTIONS.thailand, [item], 'thailand')
+    expect(merged.flights).toEqual({ low: 700, high: 720 })
+    expect(merged.food).toEqual(DEFAULT_ASSUMPTIONS.thailand.food)
+  })
+
+  it('ignores edits for the other country', () => {
+    expect(mergeAssumptions(DEFAULT_ASSUMPTIONS.malaysia, [item], 'malaysia')).toEqual(DEFAULT_ASSUMPTIONS.malaysia)
+  })
+
+  it('leaves the defaults untouched', () => {
+    mergeAssumptions(DEFAULT_ASSUMPTIONS.thailand, [item], 'thailand')
+    expect(DEFAULT_ASSUMPTIONS.thailand.flights.low).toBe(620)
   })
 })
 

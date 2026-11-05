@@ -2,6 +2,8 @@ import {
   aggregateResults,
   isClosed,
   type ApiErrorCode,
+  type BudgetCategory,
+  type BudgetItemView,
   type AdminGroupView,
   type Destination,
   type GroupView,
@@ -21,6 +23,15 @@ export interface VoteInput {
   expectedVersion: string | null
 }
 
+export interface BudgetEdit {
+  country: Destination
+  category: BudgetCategory
+  low: number
+  high: number
+  note: string
+  expectedVersion: string | null
+}
+
 export interface VotingClient {
   mode: 'api' | 'demo'
   groupId: string
@@ -30,6 +41,9 @@ export interface VotingClient {
   signIn(credential: string): Promise<MeView>
   signOut(): Promise<void>
   vote(input: VoteInput): Promise<MeView>
+  getBudget(): Promise<BudgetItemView[]>
+  saveBudgetItem(edit: BudgetEdit): Promise<BudgetItemView>
+  resetBudgetItem(country: Destination, category: BudgetCategory): Promise<void>
 }
 
 const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
@@ -64,6 +78,11 @@ export function createApiClient(groupId: string): VotingClient {
       await apiFetch(`${base}/logout`, { method: 'POST' })
     },
     vote: (input) => apiFetch<MeView>(`${base}/vote`, { method: 'PUT', body: JSON.stringify(input) }),
+    getBudget: () => apiFetch<BudgetItemView[]>(`${base}/budget`),
+    saveBudgetItem: (edit) => apiFetch<BudgetItemView>(`${base}/budget`, { method: 'PUT', body: JSON.stringify(edit) }),
+    resetBudgetItem: async (country, category) => {
+      await apiFetch(`${base}/budget/reset`, { method: 'POST', body: JSON.stringify({ country, category }) })
+    },
   }
 }
 
@@ -102,6 +121,18 @@ const readDemo = (): DemoState => {
 }
 
 const writeDemo = (state: DemoState) => localStorage.setItem(DEMO_KEY, JSON.stringify(state))
+
+const DEMO_BUDGET_KEY = 'nsa-demo-budget'
+
+const readDemoBudget = (): BudgetItemView[] => {
+  try {
+    return JSON.parse(localStorage.getItem(DEMO_BUDGET_KEY) ?? '[]') as BudgetItemView[]
+  } catch {
+    return []
+  }
+}
+
+const writeDemoBudget = (items: BudgetItemView[]) => localStorage.setItem(DEMO_BUDGET_KEY, JSON.stringify(items))
 
 /** Single-browser stand-in for local development. Nothing here is shared with anyone. */
 export function createDemoClient(): VotingClient & { setLocked(locked: boolean): void; reset(): void } {
@@ -144,6 +175,26 @@ export function createDemoClient(): VotingClient & { setLocked(locked: boolean):
       }
       writeDemo(next)
       return toMe(next) as MeView
+    },
+    getBudget: async () => readDemoBudget(),
+    async saveBudgetItem(edit) {
+      const { country, category, low, high, note } = edit
+      const item: BudgetItemView = {
+        country,
+        category,
+        low,
+        high,
+        note,
+        updatedBy: readDemo().name ?? 'Demo',
+        updatedAt: new Date().toISOString(),
+        version: String(Date.now()),
+      }
+      const others = readDemoBudget().filter((i) => i.country !== edit.country || i.category !== edit.category)
+      writeDemoBudget([...others, item])
+      return item
+    },
+    resetBudgetItem: async (country, category) => {
+      writeDemoBudget(readDemoBudget().filter((i) => i.country !== country || i.category !== category))
     },
     setLocked: (locked) => writeDemo({ ...readDemo(), locked }),
     reset: () => localStorage.removeItem(DEMO_KEY),

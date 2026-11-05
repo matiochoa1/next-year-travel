@@ -15,24 +15,24 @@ export function Adventure() {
           <Reveal>
             <p className="eyebrow text-gold-700">La aventura</p>
             <blockquote className="mt-5 font-display text-3xl leading-tight md:text-5xl">
-              Después de Filipinas, queremos volver a perdernos entre islas, playas paradisíacas, ciudades increíbles y naturaleza.
+              En mayo de 2027 queremos perdernos entre islas, playas paradisíacas, ciudades increíbles y naturaleza.
             </blockquote>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-8 max-w-xl text-lg text-muted">
-              Nos enganchó saltar de isla en isla, los arrecifes, los miradores imposibles y esas noches de ciudad con comida en la calle. Queremos repetirlo sin repetir destino: quince días en mayo de 2027 saliendo desde Madrid, y dos candidatos con argumentos de sobra.
+              Buscamos saltar de isla en isla, arrecifes, miradores imposibles y noches de ciudad con comida en la calle. Quince días saliendo desde Madrid y dos candidatos con argumentos de sobra.
             </p>
           </Reveal>
         </div>
 
         <div className="relative md:col-span-6">
           <Reveal>
-            <Photo id="ph-elnido" sizes="(min-width: 768px) 40vw, 90vw" alt="Laguna entre islotes calizos en El Nido, Palawan: un recuerdo de nuestro viaje a Filipinas" className="aspect-[4/5] w-full md:w-4/5" />
+            <Photo id="th-angthong2" sizes="(min-width: 768px) 40vw, 90vw" className="aspect-[4/5] w-full md:w-4/5" />
           </Reveal>
           <m.figure style={{ y: drift }} className="absolute right-0 -bottom-10 hidden w-1/2 border-8 border-ivory md:block">
-            <Photo id="ph-boat" sizes="25vw" className="aspect-[4/3] w-full" />
+            <Photo id="my-afterglow" sizes="25vw" className="aspect-[4/3] w-full" />
           </m.figure>
-          <p className="mt-3 text-sm text-muted md:w-4/5">Palawan, Filipinas: el listón que hay que superar.</p>
+          <p className="mt-3 text-sm text-muted md:w-4/5">Ang Thong, en Tailandia, y las Perhentian, en Malasia.</p>
         </div>
       </div>
 

@@ -1,3 +1,4 @@
+import type { BudgetItemView } from '@nsa/shared'
 import {
   BUDGET_CATEGORIES,
   COMFORT_FACTORS,
@@ -22,6 +23,15 @@ export interface BudgetResult {
 
 /** A single room costs well under double, since the price is per room and two people share it. */
 const SOLO_ROOM_FACTOR = 1.7
+
+/** Group edits replace the editorial defaults item by item. */
+export function mergeAssumptions(defaults: BudgetAssumptions, items: BudgetItemView[], country: string): BudgetAssumptions {
+  const merged = { ...defaults }
+  for (const { country: itemCountry, category, low, high } of items) {
+    if (itemCountry === country) merged[category] = { low, high }
+  }
+  return merged
+}
 
 const scale = (range: Range, factor: number): Range => ({ low: range.low * factor, high: range.high * factor })
 

@@ -99,7 +99,7 @@ test('preference sliders update the match instantly and persist', async ({ page 
   await expect(page.getByRole('slider', { name: 'Vida nocturna' })).toHaveValue('5')
 })
 
-test('updates the budget', async ({ page }) => {
+test('updates the personal budget view', async ({ page }) => {
   const section = page.locator('#presupuesto')
   await section.scrollIntoViewIfNeeded()
   await expect(section.getByTestId('total-thailand')).toContainText('1.520')
@@ -107,10 +107,50 @@ test('updates the budget', async ({ page }) => {
   await expect(section.getByTestId('total-malaysia')).toContainText('1.320')
   await section.getByLabel('Viajeros').fill('2')
   await expect(section.getByTestId('group-thailand')).toContainText('3.040')
+})
+
+test('edits a price after signing in, and undoes it', async ({ page }) => {
+  const section = page.locator('#presupuesto')
+  await section.scrollIntoViewIfNeeded()
+  await expect(section.getByRole('button', { name: /^Editar/ })).toHaveCount(0)
+
+  const voting = page.locator('#votacion')
+  await voting.scrollIntoViewIfNeeded()
+  await voting.getByLabel('Tu nombre').fill('Ana')
+  await voting.getByRole('button', { name: 'Entrar' }).click()
+
+  await section.getByRole('button', { name: 'Editar Vuelos internacionales, Tailandia' }).click()
+  await section.getByLabel('Vuelos internacionales, Tailandia, mínimo').fill('5000')
+  await section.getByRole('button', { name: 'Guardar para todos' }).click()
+  await expect(section.getByRole('alert')).toContainText('mínimo igual o menor')
+
   await section.getByLabel('Vuelos internacionales, Tailandia, mínimo').fill('820')
+  await section.getByLabel('Vuelos internacionales, Tailandia, nota').fill('<b>Qatar</b> en eDreams')
+  await section.getByRole('button', { name: 'Guardar para todos' }).click()
+  const item = section.getByTestId('item-thailand-flights')
+  await expect(item).toContainText('Ana')
+  await expect(item).toContainText('<b>Qatar</b> en eDreams')
   await expect(section.getByTestId('total-thailand')).toContainText('1.720')
-  await section.getByRole('button', { name: 'Restablecer' }).click()
-  await expect(section.getByTestId('total-thailand')).toContainText('1.520')
+  await expect(section.getByTestId('budget-status')).toContainText('1 precio actualizado')
+
+  await page.reload()
+  await expect(page.getByTestId('total-thailand')).toContainText('1.720')
+
+  await page.getByRole('button', { name: 'Editar Vuelos internacionales, Tailandia' }).click()
+  await page.getByRole('button', { name: 'Volver a la estimación inicial' }).click()
+  await expect(page.getByTestId('total-thailand')).toContainText('1.520')
+})
+
+test('search links carry the route and the chosen dates', async ({ page }) => {
+  const section = page.locator('#presupuesto')
+  await section.getByLabel('Salida desde Madrid').scrollIntoViewIfNeeded()
+  await section.getByLabel('Salida desde Madrid').fill('2027-05-15')
+  const thailand = section.getByTestId('search-thailand')
+  await expect(thailand.getByRole('link', { name: /^Skyscanner: Madrid/ })).toHaveAttribute('href', /flights\/mad\/bkk\/270515\/270529\//)
+  await expect(thailand.getByRole('link', { name: /^eDreams: Madrid/ })).toHaveAttribute('href', /from=MAD;to=BKK;dep=2027-05-15;ret=2027-05-29/)
+  await expect(section.getByTestId('search-malaysia').getByRole('link', { name: /^Google Flights: Madrid/ })).toHaveAttribute('href', /KUL/)
+  await expect(thailand.getByRole('link', { name: /^Koh Tao · / })).toHaveAttribute('href', /booking\.com.*checkin=2027-05-2/)
+  await expect(thailand.getByRole('link', { name: /^Koh Tao · / })).toHaveAttribute('target', '_blank')
 })
 
 test('signs in, votes, changes the vote and sees the final reveal in demo mode', async ({ page }) => {

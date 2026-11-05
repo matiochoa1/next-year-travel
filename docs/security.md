@@ -16,6 +16,10 @@ Someone with several Google accounts can only vote with the ones you invited. Gm
 
 **The site itself isn't private.** Vercel serves it as static files, so the destination guides, itineraries and budgets are public to anyone with the URL. The login protects group data, not this content. Pages are marked `noindex`, which asks search engines not to list them.
 
+## Shared prices
+
+Any signed-in participant can edit or reset a budget price for the whole group, because friends are trusted and the goal is low friction. The API records who made the latest change, from the session rather than the request. There's no history, so an overwritten value can't be restored. Edits use ETags, so a stale edit is refused rather than silently overwriting a friend's.
+
 ## Personal data
 
 The table stores each invited email, plus each participant's Google display name, email and last login. Email addresses are visible only on the admin page. Raw Google tokens are never stored. Deleting the resource group deletes all of it.

@@ -180,6 +180,24 @@ describe.each([
     expect(await repo.deleteVotes(groupId)).toBe(105)
   })
 
+  it('stores budget items with optimistic concurrency', async () => {
+    const repo = getRepo()
+    const groupId = await seededGroup(repo)
+    const item = {
+      country: 'thailand', category: 'flights', low: 700, high: 850, note: 'Nota',
+      updatedBy: 'Ana', updatedAt: '2026-01-01T00:00:00.000Z',
+    } as const
+    const created = await repo.putBudgetItem(groupId, item, null)
+    await expect(repo.putBudgetItem(groupId, item, null)).rejects.toBeInstanceOf(ConcurrencyError)
+    const updated = await repo.putBudgetItem(groupId, { ...item, low: 720 }, created.version)
+    await expect(repo.putBudgetItem(groupId, item, created.version)).rejects.toBeInstanceOf(ConcurrencyError)
+    expect(await repo.listBudgetItems(groupId)).toEqual([updated])
+    expect((await repo.getSnapshot(groupId)).votes).toHaveLength(0)
+    await repo.deleteBudgetItem(groupId, 'thailand', 'flights')
+    await repo.deleteBudgetItem(groupId, 'thailand', 'flights')
+    expect(await repo.listBudgetItems(groupId)).toEqual([])
+  })
+
   it('counts rate-limit hits per window', async () => {
     const repo = getRepo()
     const key = `vote_${groupKey()}`

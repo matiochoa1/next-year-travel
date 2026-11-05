@@ -1,30 +1,14 @@
-import { RotateCcw } from 'lucide-react'
-import { useMemo } from 'react'
+import { Users } from 'lucide-react'
+import { useMemo, useRef } from 'react'
 import { SectionHeading } from '../../components/ui/SectionHeading'
-import { BUDGET_CATEGORIES, CATEGORY_LABELS, COMFORT_LABELS, type ComfortLevel } from '../../data/budget'
+import { BUDGET_CATEGORIES, CATEGORY_LABELS, COMFORT_LABELS, DEFAULT_ASSUMPTIONS, type ComfortLevel } from '../../data/budget'
 import { COUNTRIES, COUNTRY_NAMES, type Country } from '../../data/types'
 import { useTrip } from '../../store/tripStore'
-import { calculateBudget, formatEuros, formatRange, nightsFor, type BudgetResult } from './calculateBudget'
-
-function NumberField({ label, value, onChange, min = 0, max }: { label: string; value: number; onChange: (value: number) => void; min?: number; max?: number }) {
-  return (
-    <label className="block min-w-0">
-      <span className="sr-only">{label}</span>
-      <input
-        type="number"
-        inputMode="numeric"
-        min={min}
-        max={max}
-        value={value}
-        onChange={(event) => {
-          const parsed = Number(event.target.value)
-          if (Number.isFinite(parsed) && parsed >= min) onChange(parsed)
-        }}
-        className="min-h-10 w-full border border-sand-400 bg-ivory px-1.5 text-right tabular-nums"
-      />
-    </label>
-  )
-}
+import { useSession } from '../voting/session'
+import { BudgetItem } from './BudgetItem'
+import { calculateBudget, formatEuros, formatRange, mergeAssumptions, nightsFor, type BudgetResult } from './calculateBudget'
+import { PriceSearch } from './PriceSearch'
+import { useGroupBudget } from './useGroupBudget'
 
 const Total = ({ country, result, travelers }: { country: Country; result: BudgetResult; travelers: number }) => (
   <div className="flex-1 bg-ocean-900 p-6 text-ivory">
@@ -39,8 +23,18 @@ const Total = ({ country, result, travelers }: { country: Country; result: Budge
 )
 
 export function BudgetSection() {
-  const { assumptions, travelers, budgetDays, comfort, sharedRoom, setBudget, setAssumption, resetAssumptions } = useTrip()
+  const { budgetItems, travelers, budgetDays, comfort, sharedRoom, setBudget } = useTrip()
+  const { client, me, loading } = useSession()
+  const sectionRef = useRef<HTMLElement>(null)
+  const reload = useGroupBudget(sectionRef)
   const inputs = useMemo(() => ({ travelers, days: budgetDays, comfort, sharedRoom }), [travelers, budgetDays, comfort, sharedRoom])
+  const assumptions = useMemo(
+    () => ({
+      thailand: mergeAssumptions(DEFAULT_ASSUMPTIONS.thailand, budgetItems, 'thailand'),
+      malaysia: mergeAssumptions(DEFAULT_ASSUMPTIONS.malaysia, budgetItems, 'malaysia'),
+    }),
+    [budgetItems],
+  )
   const results = useMemo(
     () => ({
       thailand: calculateBudget(assumptions.thailand, inputs),
@@ -48,6 +42,7 @@ export function BudgetSection() {
     }),
     [assumptions, inputs],
   )
+  const realCount = budgetItems.length
   const lowDiff = results.thailand.perPerson.low - results.malaysia.perPerson.low
   const highDiff = results.thailand.perPerson.high - results.malaysia.perPerson.high
   const midDiff = (lowDiff + highDiff) / 2
@@ -55,13 +50,22 @@ export function BudgetSection() {
   const maxHigh = Math.max(...COUNTRIES.flatMap((c) => BUDGET_CATEGORIES.map((k) => results[c].categories[k].high)))
 
   return (
-    <section id="presupuesto" className="bg-sand-100 px-5 py-24 md:px-8 md:py-32">
+    <section id="presupuesto" ref={sectionRef} className="bg-sand-100 px-5 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Presupuesto" title="¿Cuánto nos va a costar?">
-          <p>Estimaciones orientativas y editables para planificar, no presupuestos reales: aquí no se consultan precios de vuelos ni de hoteles en directo.</p>
+          <p>Empezamos con estimaciones orientativas y entre todos las sustituimos por precios reales. Cada cambio se guarda para todo el grupo, con el nombre de quien lo hizo.</p>
         </SectionHeading>
 
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <p data-testid="budget-status" className="mt-6 flex items-center gap-2 text-sm font-medium">
+          <Users aria-hidden className="size-4" />
+          {me
+            ? realCount === 0
+              ? 'Todavía nadie ha añadido precios reales. ¡Empieza tú!'
+              : `${realCount} ${realCount === 1 ? 'precio actualizado' : 'precios actualizados'} por el grupo.`
+            : !loading && <a href="#votacion" className="link-underline">Entra con Google para ver y editar los precios del grupo</a>}
+        </p>
+
+        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
           <label className="text-sm font-medium">
             Viajeros
             <input
@@ -103,6 +107,8 @@ export function BudgetSection() {
           </label>
         </div>
 
+        <p className="mt-2 text-xs text-muted">Viajeros, días y comodidad solo cambian tu cálculo. Los precios de abajo son los del grupo.</p>
+
         <div className="mt-8 flex flex-col gap-3 md:flex-row">
           {COUNTRIES.map((country) => <Total key={country} country={country} result={results[country]} travelers={travelers} />)}
         </div>
@@ -113,47 +119,32 @@ export function BudgetSection() {
             : `${cheaper} sale unos ${formatEuros(Math.abs(midDiff))} más barata por persona, en el punto medio de cada rango.`}
         </p>
 
-        <div className="mt-10 overflow-hidden">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <h3 className="text-2xl">Desglose y supuestos</h3>
-              <p className="text-sm text-muted">
-                Importes por persona, mínimo y máximo. Se basan en {nightsFor(budgetDays)} noches de hotel y gama media; edítalos si tenéis mejores datos.
-              </p>
-            </div>
-            <button type="button" onClick={resetAssumptions} className="flex min-h-11 shrink-0 items-center gap-2 text-sm font-medium">
-              <RotateCcw aria-hidden className="size-4" /> Restablecer
-            </button>
-          </div>
+        <PriceSearch />
 
+        <div className="mt-14">
+          <h3 className="text-3xl">Precios del grupo</h3>
+          <p className="mt-1 text-sm text-muted">
+            Por persona, para {nightsFor(budgetDays)} noches de hotel. Pon un rango si dudas, o el mismo valor en mínimo y máximo si ya tienes el precio exacto.
+          </p>
           <ul className="mt-5 space-y-5">
             {BUDGET_CATEGORIES.map((category) => (
               <li key={category} className="border-t border-sand-400 pt-3">
                 <h4 className="font-sans text-sm font-semibold tracking-normal">{CATEGORY_LABELS[category]}</h4>
-                <div className="mt-2 grid gap-4 md:grid-cols-2">
-                  {COUNTRIES.map((country) => {
-                    const range = results[country].categories[category]
-                    const assumption = assumptions[country][category]
-                    const label = `${CATEGORY_LABELS[category]}, ${COUNTRY_NAMES[country]}`
-                    return (
-                      <div key={country} className="grid grid-cols-[1fr_4.5rem_4.5rem] items-center gap-2">
-                        <div className="min-w-0">
-                          <p className="flex justify-between gap-2 text-xs">
-                            <span className="text-muted">{COUNTRY_NAMES[country]}</span>
-                            <span className="truncate tabular-nums">{formatRange(range)}</span>
-                          </p>
-                          <div className="relative mt-1 h-1.5 bg-sand-200">
-                            <span
-                              className={`absolute inset-y-0 ${country === 'thailand' ? 'bg-aqua-600' : 'bg-gold-700'}`}
-                              style={{ left: `${(range.low / maxHigh) * 100}%`, width: `${((range.high - range.low) / maxHigh) * 100}%` }}
-                            />
-                          </div>
-                        </div>
-                        <NumberField label={`${label}, mínimo`} value={assumption.low} onChange={(value) => setAssumption(country, category, 'low', value)} />
-                        <NumberField label={`${label}, máximo`} value={assumption.high} onChange={(value) => setAssumption(country, category, 'high', value)} />
-                      </div>
-                    )
-                  })}
+                <div className="mt-2 grid gap-6 md:grid-cols-2">
+                  {COUNTRIES.map((country) => (
+                    <BudgetItem
+                      key={country}
+                      client={client}
+                      country={country}
+                      category={category}
+                      base={assumptions[country][category]}
+                      total={results[country].categories[category]}
+                      maxHigh={maxHigh}
+                      item={budgetItems.find((item) => item.country === country && item.category === category)}
+                      canEdit={me !== null}
+                      onChanged={reload}
+                    />
+                  ))}
                 </div>
               </li>
             ))}

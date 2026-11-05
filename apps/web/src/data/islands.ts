@@ -75,7 +75,7 @@ export const ISLANDS: Island[] = [
   },
   {
     id: 'angthong', name: 'Ang Thong', country: 'thailand', image: 'th-angthong', gallery: ['th-angthong', 'th-angthong2', 'th-angthong3'],
-    tagline: 'El paisaje de Filipinas',
+    tagline: 'El gran paisaje del Golfo',
     description: 'Más de 40 islas calizas forman este parque marino. Se suben miradores, se rema en kayak y se visita una laguna esmeralda interior.',
     scores: { snorkeling: 3, diving: 2, beach: 4, adventure: 5, nightlife: 1, peace: 4, hopping: 5 },
     duration: '1 día', access: 'Excursión en barco desde Samui o Phangan.',

@@ -1,5 +1,7 @@
 import {
   aggregateResults,
+  budgetItemRequestSchema,
+  budgetResetRequestSchema,
   createGroupRequestSchema,
   deadlineRequestSchema,
   groupIdSchema,
@@ -275,6 +277,37 @@ const putVote: Handler = async (req, deps) => {
   throw new HttpError(409, 'version_conflict')
 }
 
+const getBudget: Handler = async (req, deps) => {
+  const group = await requireGroup(req, deps)
+  await requireParticipant(req, group, deps)
+  return { body: await deps.repo.listBudgetItems(group.groupId) }
+}
+
+const putBudgetItem: Handler = async (req, deps) => {
+  const group = await requireGroup(req, deps)
+  const participant = await requireParticipant(req, group, deps)
+  const { expectedVersion, ...input } = await body(req, budgetItemRequestSchema)
+  try {
+    const item = await deps.repo.putBudgetItem(
+      group.groupId,
+      { ...input, updatedBy: participant.displayName, updatedAt: deps.now().toISOString() },
+      expectedVersion,
+    )
+    return { body: item }
+  } catch (error) {
+    if (error instanceof ConcurrencyError) throw new HttpError(409, 'version_conflict')
+    throw error
+  }
+}
+
+const resetBudgetItem: Handler = async (req, deps) => {
+  const group = await requireGroup(req, deps)
+  await requireParticipant(req, group, deps)
+  const { country, category } = await body(req, budgetResetRequestSchema)
+  await deps.repo.deleteBudgetItem(group.groupId, country, category)
+  return { body: null }
+}
+
 const adminGet: Handler = async (req, deps) => {
   const group = await requireAdmin(req, deps)
   const [snapshot, invitations] = await Promise.all([
@@ -363,6 +396,9 @@ export const routes: Route[] = [
   { name: 'getResults', method: 'GET', path: 'groups/{groupId}/results', handler: getResults },
   { name: 'getMe', method: 'GET', path: 'groups/{groupId}/me', handler: getMe },
   { name: 'putVote', method: 'PUT', path: 'groups/{groupId}/vote', handler: putVote, rate: { action: 'vote', limit: 40, windowSeconds: 600 } },
+  { name: 'getBudget', method: 'GET', path: 'groups/{groupId}/budget', handler: getBudget },
+  { name: 'putBudgetItem', method: 'PUT', path: 'groups/{groupId}/budget', handler: putBudgetItem, rate: { action: 'budget', limit: 120, windowSeconds: 600 } },
+  { name: 'resetBudgetItem', method: 'POST', path: 'groups/{groupId}/budget/reset', handler: resetBudgetItem, rate: { action: 'budget', limit: 120, windowSeconds: 600 } },
   { name: 'adminGet', method: 'GET', path: 'manage/groups/{groupId}', handler: adminGet, rate: adminRate },
   { name: 'adminInvite', method: 'POST', path: 'manage/groups/{groupId}/invitations', handler: adminInvite, rate: adminRate },
   { name: 'adminUninvite', method: 'POST', path: 'manage/groups/{groupId}/invitations/remove', handler: adminUninvite, rate: adminRate },

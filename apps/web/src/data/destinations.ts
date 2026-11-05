@@ -32,7 +32,7 @@ export const DESTINATIONS: Record<Country, DestinationProfile> = {
     heroImage: 'th-angthong3',
     gallery: ['th-grandpalace', 'th-angthong', 'th-yaowarat', 'th-ayutthaya', 'th-nangyuan', 'th-phangan2', 'th-chedi', 'th-padthai'],
     signature: [
-      { title: 'Ang Thong en barco', text: 'Un día entre islas calizas, kayak y un mirador que recuerda a Palawan.' },
+      { title: 'Ang Thong en barco', text: 'Un día entre islas calizas, kayak y un mirador de los que no se olvidan.' },
       { title: 'Atardecer en Ayutthaya', text: 'Ruinas de ladrillo de la antigua capital de Siam, teñidas de naranja.' },
       { title: 'Bucear en Koh Tao', text: 'Uno de los lugares más populares del mundo para iniciarse en el buceo.' },
       { title: 'Noche en Yaowarat', text: 'Neones, woks y humo en el barrio chino de Bangkok.' },
@@ -56,7 +56,7 @@ export const DESTINATIONS: Record<Country, DestinationProfile> = {
       },
       {
         id: 'nature', title: 'Parques y naturaleza', lead: 'Selva de montaña al norte, parque marino al sur.',
-        body: 'El Parque Marino de Ang Thong es el gran protagonista por su parecido con los paisajes que nos encantaron en Filipinas. En el norte, Doi Suthep y Doi Inthanon ofrecen bosque de altura. Quien quiera ver elefantes debería elegir santuarios sin montas ni espectáculos.',
+        body: 'El Parque Marino de Ang Thong es el gran protagonista por sus islas calizas, sus lagunas y sus miradores. En el norte, Doi Suthep y Doi Inthanon ofrecen bosque de altura. Quien quiera ver elefantes debería elegir santuarios sin montas ni espectáculos.',
         highlights: ['Ang Thong', 'Doi Inthanon', 'Doi Suthep-Pui'],
         image: 'th-angthong2',
       },
@@ -83,7 +83,7 @@ export const DESTINATIONS: Record<Country, DestinationProfile> = {
       'Variedad enorme en un solo viaje.',
       'Red turística muy rodada, con ferris y vuelos frecuentes.',
       'La mejor vida nocturna de las dos opciones.',
-      'Ang Thong es lo más parecido a Filipinas.',
+      'Ang Thong es uno de los paisajes marinos más espectaculares del viaje.',
     ],
     tradeoffs: [
       'Las zonas famosas pueden estar masificadas.',

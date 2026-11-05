@@ -263,6 +263,62 @@ describe('voting API', () => {
     })
   })
 
+  describe('shared budget', () => {
+    const edit = { country: 'thailand', category: 'flights', low: 700, high: 850, note: 'Visto en eDreams', expectedVersion: null }
+
+    it('requires a session to read or change prices', async () => {
+      expect((await call('getBudget')).status).toBe(401)
+      expect((await call('putBudgetItem', { body: edit })).status).toBe(401)
+      expect((await call('resetBudgetItem', { body: { country: 'thailand', category: 'flights' } })).status).toBe(401)
+    })
+
+    it('shares an edit with everyone and records who made it', async () => {
+      const ana = await join('Ana')
+      const beto = await join('Beto')
+      const saved = await call('putBudgetItem', { body: edit, cookie: ana })
+      expect(saved.status).toBe(200)
+      expect((await call('getBudget', { cookie: beto })).body).toMatchObject([
+        { country: 'thailand', category: 'flights', low: 700, high: 850, note: 'Visto en eDreams', updatedBy: 'Ana' },
+      ])
+    })
+
+    it('ignores any author the client tries to send', async () => {
+      const cookie = await join('Ana')
+      expect((await call('putBudgetItem', { body: { ...edit, updatedBy: 'Otro' }, cookie })).status).toBe(400)
+    })
+
+    it('rejects an edit based on a stale value', async () => {
+      const [ana, beto] = [await join('Ana'), await join('Beto')]
+      const first = await call('putBudgetItem', { body: edit, cookie: ana })
+      const { version } = first.body as { version: string }
+      await call('putBudgetItem', { body: { ...edit, low: 720, expectedVersion: version }, cookie: ana })
+      const stale = await call('putBudgetItem', { body: { ...edit, low: 600, expectedVersion: version }, cookie: beto })
+      expect(stale.status).toBe(409)
+      const initial = await call('putBudgetItem', { body: edit, cookie: beto })
+      expect(initial.status).toBe(409)
+    })
+
+    it('validates amounts', async () => {
+      const cookie = await join('Ana')
+      for (const invalid of [{ low: 900, high: 100 }, { low: -1 }, { high: 20001 }, { low: 1.5 }, { category: 'yates' }, { country: 'vietnam' }]) {
+        expect((await call('putBudgetItem', { body: { ...edit, ...invalid }, cookie })).status).toBe(400)
+      }
+    })
+
+    it('goes back to the initial value on reset', async () => {
+      const cookie = await join('Ana')
+      await call('putBudgetItem', { body: edit, cookie })
+      await call('resetBudgetItem', { body: { country: 'thailand', category: 'flights' }, cookie })
+      expect((await call('getBudget', { cookie })).body).toEqual([])
+    })
+
+    it('stays editable after the vote closes', async () => {
+      const cookie = await join('Ana')
+      await call('adminLock', { cookie: admin })
+      expect((await call('putBudgetItem', { body: edit, cookie })).status).toBe(200)
+    })
+  })
+
   describe('admin', () => {
     const adminRoutes = ['adminGet', 'adminInvite', 'adminUninvite', 'adminLock', 'adminUnlock', 'adminDeadline', 'adminReset']
 

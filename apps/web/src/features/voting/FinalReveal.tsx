@@ -7,8 +7,8 @@ import { DESTINATIONS } from '../../data/destinations'
 import { DEFAULT_ASSUMPTIONS } from '../../data/budget'
 import { ROUTES } from '../../data/routes'
 import { COUNTRY_NAMES } from '../../data/types'
-import { DEFAULT_ROUTES } from '../../store/tripStore'
-import { calculateBudget, formatRange } from '../budget/calculateBudget'
+import { DEFAULT_ROUTES, useTrip } from '../../store/tripStore'
+import { calculateBudget, formatRange, mergeAssumptions } from '../budget/calculateBudget'
 import { Confetti } from './Confetti'
 import { Comments, ResultBars } from './ResultBars'
 
@@ -29,6 +29,7 @@ export function shareText(results: ResultsView) {
 export function FinalReveal({ results }: { results: ResultsView }) {
   const [copied, setCopied] = useState(false)
   const { winner, tie } = results
+  const budgetItems = useTrip((state) => state.budgetItems)
 
   const share = async () => {
     const text = shareText(results)
@@ -42,7 +43,7 @@ export function FinalReveal({ results }: { results: ResultsView }) {
   }
 
   const budget = winner
-    ? calculateBudget(DEFAULT_ASSUMPTIONS[winner], { travelers: 1, days: 15, comfort: 'mid', sharedRoom: true }).perPerson
+    ? calculateBudget(mergeAssumptions(DEFAULT_ASSUMPTIONS[winner], budgetItems, winner), { travelers: 1, days: 15, comfort: 'mid', sharedRoom: true }).perPerson
     : null
 
   return (
@@ -84,7 +85,7 @@ export function FinalReveal({ results }: { results: ResultsView }) {
             <h3 className="text-2xl">El viaje que nos espera</h3>
             <p className="mt-2 text-ivory/85">{summaryOf(winner)}</p>
             <p className="mt-3 text-ivory/85">
-              Estimación orientativa para 15 días: <strong className="text-ivory">{budget && formatRange(budget)}</strong> por persona.
+              Con los precios del grupo, para 15 días: <strong className="text-ivory">{budget && formatRange(budget)}</strong> por persona.
             </p>
             <p className="mt-3 font-display text-xl text-gold-500">{DESTINATIONS[winner].may.verdict}.</p>
           </div>

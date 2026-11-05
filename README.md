@@ -35,6 +35,7 @@ docs             Deployment, cost and security notes
 
 - **Same-origin API through a Vercel rewrite.** Browsers increasingly block third-party cookies, so a session cookie set by `*.azurewebsites.net` for a `*.vercel.app` page would not work reliably (notably on Safari). `/api/*` is rewritten to the Function App, which makes the cookie first-party.
 - **Invite-only Google sign-in.** The browser gets an ID token from Google, the API verifies it, checks the invitation list and sets its own session cookie. Votes, results and names require a session. The destination guides are public static content.
+- **Shared budget.** Signed-in friends replace the editorial estimates item by item. Each edit is one table row, so only the changed price can conflict. Trip length, travelers and comfort stay personal.
 - **One Table Storage partition per group.** Vote rows are keyed by participant, so "one active vote per participant" holds by construction, and ETags guard updates. See the comment in `apps/api/src/table-repository.ts`.
 - **Handlers are framework-free.** Tests and the dev server call the same `execute()` that Azure Functions does.
 - **Admin endpoints are under `/api/manage/*`**, because the Azure Functions host refuses routes that start with `admin`. Only the real host reveals this, so `func start` is worth running after touching routes.

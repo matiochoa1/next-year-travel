@@ -1,6 +1,7 @@
-import type { MeView, ResultsView } from '@nsa/shared'
+import type { ResultsView } from '@nsa/shared'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { VotingError, type VoteInput, type VotingClient } from './client'
+import { VotingError, type VoteInput } from './client'
+import { useSession } from './session'
 
 export const POLL_VISIBLE_MS = 15_000
 export const POLL_OFFSCREEN_MS = 60_000
@@ -11,10 +12,9 @@ export function pollDelay(tabVisible: boolean, sectionVisible: boolean): number 
   return sectionVisible ? POLL_VISIBLE_MS : POLL_OFFSCREEN_MS
 }
 
-export function useVoting(client: VotingClient, sectionRef: React.RefObject<HTMLElement | null>) {
+export function useVoting(sectionRef: React.RefObject<HTMLElement | null>) {
+  const { client, me, setMe, loading, offline: sessionOffline, signIn, signOut: endSession } = useSession()
   const [results, setResults] = useState<ResultsView | null>(null)
-  const [me, setMe] = useState<MeView | null>(null)
-  const [loading, setLoading] = useState(true)
   const [offline, setOffline] = useState(false)
   const sectionVisible = useRef(false)
   const signedIn = me !== null
@@ -33,25 +33,7 @@ export function useVoting(client: VotingClient, sectionRef: React.RefObject<HTML
       // Stale results stay on screen; the banner tells the user they may be out of date.
       setOffline(true)
     }
-  }, [client])
-
-  useEffect(() => {
-    let cancelled = false
-    void client
-      .getMe()
-      .then((identity) => {
-        if (!cancelled) setMe(identity)
-      })
-      .catch(() => {
-        if (!cancelled) setOffline(true)
-      })
-      .finally(() => {
-        if (!cancelled) setLoading(false)
-      })
-    return () => {
-      cancelled = true
-    }
-  }, [client])
+  }, [client, setMe])
 
   // Results are private to signed-in participants, so nothing polls before login.
   useEffect(() => {
@@ -91,18 +73,10 @@ export function useVoting(client: VotingClient, sectionRef: React.RefObject<HTML
     }
   }, [refresh, sectionRef, signedIn])
 
-  const signIn = useCallback(
-    async (credential: string) => {
-      setMe(await client.signIn(credential))
-    },
-    [client],
-  )
-
   const signOut = useCallback(async () => {
-    await client.signOut()
-    setMe(null)
+    await endSession()
     setResults(null)
-  }, [client])
+  }, [endSession])
 
   const submit = useCallback(
     async (input: Omit<VoteInput, 'expectedVersion'>) => {
@@ -118,8 +92,8 @@ export function useVoting(client: VotingClient, sectionRef: React.RefObject<HTML
         await refresh()
       }
     },
-    [client, me, refresh],
+    [client, me, refresh, setMe],
   )
 
-  return { results, me, loading, offline, signIn, signOut, submit, refresh }
+  return { client, results, me, loading, offline: offline || sessionOffline, signIn, signOut, submit, refresh }
 }
