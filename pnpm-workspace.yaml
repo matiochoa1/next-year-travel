@@ -1,6 +1,9 @@
 packages:
   - apps/*
   - packages/*
+
+# None of these need their install scripts: prebuilt binaries arrive as optional dependencies.
 allowBuilds:
-  esbuild: set this to true or false
-  protobufjs: set this to true or false
+  esbuild: false
+  protobufjs: false
+  sharp: false
